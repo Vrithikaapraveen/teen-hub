@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teen Hub 2</title>
+</head>
+
+<body style="background:black;color:white;text-align:center;font-family:sans-serif">
+
+<h1>Teen Hub 2</h1>
+
+<button onclick="showNews()">News</button>
+<button onclick="showHomework()">Homework</button>
+<button onclick="showMusic()">Music</button>
+<button onclick="showChat()">Chat</button>
+<button onclick="clearBox()">Clear</button>
+
+<br><br>
+
+<div id="box"
+style="width:90%;height:400px;border:2px solid white;margin:auto;padding:10px;overflow:auto">
+</div>
+
+
+<script>
+
+
+// ---------- CLEAR ----------
+
+function clearBox(){
+document.getElementById("box").innerHTML="";
+}
+
+
+
+// ---------- NEWS ----------
+
+function showNews(){
+
+document.getElementById("box").innerHTML =
+
+"<h2>News</h2>" +
+
+"<button onclick='openBBC()'>BBC</button>" +
+
+"<button onclick='openNDTV()'>NDTV</button>" +
+
+"<button onclick='openGoogle()'>Google</button>";
+
+}
+
+function openBBC(){
+window.open("https://www.bbc.com/news","_blank");
+}
+
+function openNDTV(){
+window.open("https://www.ndtv.com","_blank");
+}
+
+function openGoogle(){
+window.open("https://news.google.com","_blank");
+}
+
+
+
+// ---------- HOMEWORK ----------
+
+function showHomework(){
+
+document.getElementById("box").innerHTML =
+
+"<h2>Homework</h2>" +
+
+"<textarea id='hw' style='width:90%;height:200px'></textarea>" +
+
+"<br><br>" +
+
+"<button onclick='saveHW()'>Save</button>" +
+
+"<div id='list'></div>";
+
+}
+
+function saveHW(){
+
+let t=document.getElementById("hw").value;
+
+document.getElementById("list").innerHTML +=
+"<p>"+t+"</p>";
+
+}
+
+
+
+// ---------- MUSIC ----------
+
+function showMusic(){
+
+document.getElementById("box").innerHTML =
+
+"<h2>Music</h2>" +
+
+"<button onclick='play(200)'>Do</button>" +
+
+"<button onclick='play(300)'>Re</button>" +
+
+"<button onclick='play(400)'>Mi</button>" +
+
+"<button onclick='play(500)'>Fa</button>" +
+
+"<button onclick='play(600)'>So</button>" +
+
+"<button onclick='play(700)'>La</button>" +
+
+"<button onclick='play(800)'>Ti</button>" +
+
+"<br><br>" +
+
+"<button onclick='play2()'>Play 2</button>" +
+
+"<button onclick='play3()'>Play 3</button>";
+
+}
+
+function play(f){
+
+let a=new AudioContext();
+let o=a.createOscillator();
+
+o.frequency.value=f;
+o.connect(a.destination);
+o.start();
+
+setTimeout(()=>o.stop(),300);
+
+}
+
+function play2(){
+
+play(300);
+play(500);
+
+}
+
+function play3(){
+
+play(200);
+play(400);
+play(700);
+
+}
+
+
+
+// ---------- CHAT ----------
+
+function showChat(){
+
+document.getElementById("box").innerHTML =
+
+"<h2>Chat</h2>" +
+
+"<div id='chatbox'></div>" +
+
+"<input id='msg'>" +
+
+"<button onclick='sendMsg()'>Send</button>" +
+
+"<button onclick='clearChat()'>Clear</button>";
+
+}
+
+function sendMsg(){
+
+let t=document.getElementById("msg").value;
+
+document.getElementById("chatbox").innerHTML +=
+"<p>"+t+"</p>";
+
+document.getElementById("msg").value="";
+
+}
+
+function clearChat(){
+
+document.getElementById("chatbox").innerHTML="";
+
+}
+
+
+</script>
+
+</body>
+</html>
