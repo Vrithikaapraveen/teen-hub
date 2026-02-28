@@ -39,7 +39,26 @@ document.getElementById("box").innerHTML =
 
 function showChat(){
 document.getElementById("box").innerHTML =
-"<h2>Chat coming soon</h2>";
+
+"<h2>Chat</h2>" +
+
+"<input id='msg' placeholder='Type message'>" +
+
+"<button onclick='sendMsg()'>Send</button>" +
+
+"<div id='chatBox' style='margin-top:10px'></div>";
+}
+
+
+function sendMsg(){
+
+let text = document.getElementById("msg").value;
+
+document.getElementById("chatBox").innerHTML +=
+"<p>" + text + "</p>";
+
+document.getElementById("msg").value = "";
+
 }
 
 
