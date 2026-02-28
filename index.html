@@ -1,18 +1,35 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teen Hub</title>
 </head>
-<body style="background:black;color:white;text-align:center;font-family:sans-serif;">
-<h1>Teen Hub</h1>
-<p>Welcome to my app!</p>
 
-<button onclick="alert('Homework coming soon')">Homework</button>
-<br><br>
-<button onclick="alert('Music coming soon')">Music</button>
-<br><br>
-<button onclick="alert('News coming soon')">News</button>
+<body style="background:black;color:white;text-align:center">
+
+<h1>Teen Hub</h1>
+
+<button onclick="showNews()">News</button>
+
+<div id="box"></div>
+
+<script>
+function showNews(){
+document.getElementById("box").innerHTML =
+"<iframe src='https://www.bbc.com/news' width='350' height='400'></iframe>";
+}
+</script>
 
 </body>
 </html>
+
+
+  
+
+
+
+  
