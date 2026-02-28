@@ -8,7 +8,6 @@
 <body style="background:black;color:white;text-align:center;font-family:sans-serif">
 
 <h1>Teen Hub</h1>
-
 <p>Welcome to my app!</p>
 
 <button onclick="showNews()">News</button>
@@ -29,17 +28,48 @@ document.getElementById("box").innerHTML =
 
 function showHomework(){
 document.getElementById("box").innerHTML =
-"<h2>Homework section</h2>";
-}
-
-function showMusic(){
-document.getElementById("box").innerHTML =
-"<iframe width='100%' height='100%' src='https://www.youtube.com/embed/jfKfPfyJRdk'></iframe>";
+"<h2>Homework section</h2><p>Write your homework here</p>";
 }
 
 function showChat(){
 document.getElementById("box").innerHTML =
 "<h2>Chat coming soon</h2>";
+}
+
+function showMusic(){
+
+document.getElementById("box").innerHTML =
+
+"<h2>Music Creator</h2>" +
+
+"<button onclick='playSound(200)'>Do</button>" +
+"<button onclick='playSound(300)'>Re</button>" +
+"<button onclick='playSound(400)'>Mi</button>" +
+"<button onclick='playSound(500)'>Fa</button>" +
+"<button onclick='playSound(600)'>So</button>" +
+
+"<p>Press buttons to make music</p>";
+
+}
+
+function playSound(freq){
+
+let audio = new AudioContext();
+
+let osc = audio.createOscillator();
+
+osc.type = 'sine';
+
+osc.frequency.value = freq;
+
+osc.connect(audio.destination);
+
+osc.start();
+
+setTimeout(()=>{
+osc.stop();
+},300);
+
 }
 
 </script>
